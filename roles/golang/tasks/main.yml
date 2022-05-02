@@ -1,0 +1,17 @@
+---
+
+- name: remove any previous golang directory
+  ansible.builtin.file:
+    path: "{{ golang.install_path }}"/go
+    state: absent
+
+- name: download golang archive
+  get_url:
+    url: {{golang.google_default_url}}/go{{ golang.version }}{{arch}}.tar.gz
+    dest: /tmp/go{{ golang.version }}{{arch}}.tar.gz
+
+- name: add path to OS profile
+  ansible.builtin.lininfile:
+    path: /etc/profile
+    line: export PATH=$PATH:/usr/local/go/bin
+

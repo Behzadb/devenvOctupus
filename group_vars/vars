@@ -1,0 +1,6 @@
+golang:
+  google_default_url: "https://go.dev/dl/"
+  version: "1.8.1"
+  arch: "linux-amd64"
+  install_path: "/usr/local/"
+
