@@ -15,3 +15,13 @@
     path: /etc/profile
     line: export PATH=$PATH:/usr/local/go/bin
 
+- name: add path to user bash profile 
+  ansible.builtin.lininfile:
+    path: ~/.bashrc
+    line: export PATH=$PATH:/usr/local/go/bin
+
+- name: configure vim environment for golang dev
+  ansible.builtin.git:
+    repo: https://github.com/fatih/vim-go.git
+    dest: ~/.vim/bundle/vim-go
+
